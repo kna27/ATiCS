@@ -1,0 +1,13 @@
+*.rkt~
+*.rkt.bak
+\#*.rkt#
+\#*.rkt#*#
+compiled/
+*.zo
+*.dep
+*.ss~
+*.ss#*
+.#*.ss
+*.scm~
+*.scm#*
+.#*.scm
