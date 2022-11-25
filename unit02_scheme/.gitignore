@@ -1,4 +1,5 @@
 *.rkt~
+*.bak
 *.rkt.bak
 \#*.rkt#
 \#*.rkt#*#
