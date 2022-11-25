@@ -12,7 +12,7 @@
   (/ (* b m) 2))
 
 (define (modadd low high current addnum)
-  (+ low (modulo (+ addnum (- current low))(+ 1 (- high low)))))
+  (+ low (modulo (+ addnum (- current low)) (+ 1 (- high low)))))
 
 (define (modsub low high current subnum)
   (modadd low high current (* subnum -1)))
