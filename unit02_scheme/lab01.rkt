@@ -9,13 +9,17 @@
   (* (/ b m) -1))
 
 (define (triangle-area m b)
-  (/ (* b m) 2))
+  (abs (/ (* (x-intercept m b) (y-intercept m b)) 2)))
+
+
 
 (define (modadd low high current addnum)
   (+ low (modulo (+ addnum (- current low)) (+ 1 (- high low)))))
 
 (define (modsub low high current subnum)
   (modadd low high current (* subnum -1)))
+
+
 
 (define (addtime time mins)
   (define time-in-mins (+ (* 60 (quotient time 100)) (modulo time 100)))
@@ -30,10 +34,6 @@
 (displayln "y-intercept")
 (display "(y-intercept 2 7) -> 7:      ")
 (y-intercept 2 7)
-(display "(y-intercept 1 0) -> 0:      ")
-(y-intercept 1 0)
-(display "(y-intercept -6 -3) -> -3:   ")
-(y-intercept -6 -3)
 (display "\n")
 
 ; Tests for x-intercept:
@@ -51,6 +51,8 @@
 (x-intercept -3 5)
 (display "\n")
 
+
+
 ; Tests for triangle-area:
 (displayln "triangle-area")
 (display "(triangle-area 0 3) -> 0:    ")
@@ -64,14 +66,16 @@
 ; (triangle-area -2 4)
 (display "\n")
 
+
+
 ; Tests for modadd:
 (displayln "modadd")
 (display "(modadd 4 7 5 1) -> 6:       ")
 (modadd 4 7 5 1)
 (display "(modadd 4 7 5 3) -> 4:       ")
 (modadd 4 7 5 3)
-(display "(modadd -2 1 0 6) -> -2:     ")
-(modadd -2 1 0 6)
+(display "(modadd -2 1 0 -1) -> -1:    ")
+(modadd -2 1 0 -1)
 (display "\n")
 
 ; Tests for modsub
@@ -84,12 +88,16 @@
 (modsub -2 1 0 6)
 (display "\n")
 
+
+
 ; Tests for addtime
 (displayln "addtime")
 (display "(addtime 1230 21) -> 1251:   ")
 (addtime 1230 21)
+(display "(addtime 530 0) -> 530:   ")
+(addtime 1230 21)
 (display "(addtime 1230 91) -> 201:    ")
-(addtime 1230 91)
+(addtime 530 91)
 (display "(addtime 545 135) -> 800:    ")
 (addtime 545 135)
 (display "\n")
