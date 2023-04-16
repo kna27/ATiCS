@@ -7,34 +7,26 @@ Krish Arora Period 1
 (define (get-element list n)
   (cond
     ((zero? n) (car list))
-    (else (get-element (cdr list) (- n 1)))
-    )
-  )
+    (else (get-element (cdr list) (- n 1)))))
 
 
 
 (define (append-element list y)
   (cond
     ((null? list) (cons y null))
-    (else (cons (car list) (append-element (cdr list) y)))
-    )
-  )
+    (else (cons (car list) (append-element (cdr list) y)))))
 
 (define (append-list first second)
   (cond
     ((null? first) second)
-    (else (cons (car first) (append-list (cdr first) second)))
-    )
-  )
+    (else (cons (car first) (append-list (cdr first) second)))))
 
 
 
 (define (backwards list)
   (cond
     ((null? list) list)
-    (else (append-list (backwards (cdr list)) (cons (car list) null)))
-    )
-  )
+    (else (append-list (backwards (cdr list)) (cons (car list) null)))))
 
 
 
@@ -55,9 +47,7 @@ Krish Arora Period 1
       ((and (equal? open #\() (equal? close #\))) #t)
       ((and (equal? open #\[) (equal? close #\])) #t)
       ((and (equal? open #\{) (equal? close #\})) #t)
-      (else #f)
-      )
-    )
+      (else #f)))
   
   (define (pop stack)
     (backwards (cdr (backwards stack))))
@@ -83,11 +73,7 @@ Krish Arora Period 1
           (else #f)
           )
         )
-       (else (paren-balanced? (substring str 1) stack))
-       )
-     )
-    )
-  )
+       (else (paren-balanced? (substring str 1) stack))))))
 
 
 
