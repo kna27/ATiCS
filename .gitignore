@@ -12,3 +12,7 @@ compiled/
 *.scm~
 *.scm#*
 .#*.scm
+.docx#
+*.tmp
+~$*.doc*
+Backup of *.doc*
