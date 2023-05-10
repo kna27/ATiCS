@@ -3,9 +3,9 @@ public class State {
     private Transition[] transitions;
     private boolean terminal;
 
-    public State(String name, Transition[] transitions, boolean terminal) {
+    public State(String name, boolean terminal) {
         this.name = name;
-        this.transitions = transitions;
+        this.transitions = new Transition[0];
         this.terminal = terminal;
     }
 

@@ -22,7 +22,7 @@ public class StateMachine {
     public void step() {
         char input = this.tape.read();
         Transition transition = this.currentState.getTransition(input);
-        this.tape.write(transition.getSymbol());
+        this.tape.write(transition.getWrite());
         if (transition.getDirection() == Transition.Direction.LEFT) {
             this.tape.left();
         } else {
