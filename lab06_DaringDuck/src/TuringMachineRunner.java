@@ -1,5 +1,7 @@
 public class TuringMachineRunner {
 
+  public static final boolean debug = false;
+
   public static void main(String[] args) {
     State A = new State("a", false);
     State B = new State("b", false);
@@ -18,14 +20,12 @@ public class TuringMachineRunner {
     D.addTransition(new Transition('1', '1', Transition.Direction.RIGHT, E));
     E.addTransition(new Transition('0', '1', Transition.Direction.RIGHT, A));
     E.addTransition(new Transition('1', '0', Transition.Direction.RIGHT, B));
-    
+
     State[] states = { A, B, C, D, E, H };
     char[] alphabet = { '0', '1', ' ' };
-    Tape tape = new Tape("000");
+    Tape tape = new Tape("0");
 
     StateMachine machine = new StateMachine(states, tape, alphabet);
-    
-    System.out.println("Running Machine...");
     machine.run();
     System.out.println("One Count: " + machine.oneCount());
     System.out.println("Score: " + machine.score());

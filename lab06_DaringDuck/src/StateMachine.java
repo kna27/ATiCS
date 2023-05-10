@@ -14,6 +14,11 @@ public class StateMachine {
     }
 
     public void run() {
+        System.out.println("Number of states: " + this.states.length);
+        System.out.println("Alphabet size: " + this.alphabet.length);
+        System.out.println("Initial input size: " + this.initialInputSize);
+        System.out.println("________________________");
+        System.out.println("Running Machine...");
         while (!this.currentState.isTerminal()) {
             this.step();
         }
@@ -29,6 +34,15 @@ public class StateMachine {
             this.tape.right();
         }
         this.currentState = transition.getNextState();
+        if (TuringMachineRunner.debug) {
+            System.out.println(this.tape.toString());
+            for (int i = 0; i < this.tape.head; i++) {
+                System.out.print(" ");
+            }
+            System.out.println("^");
+            System.out.println(this.currentState.getName());
+            System.out.println("________________________");
+        }
     }
 
     public int oneCount() {
@@ -36,6 +50,7 @@ public class StateMachine {
     }
 
     public float score() {
-        return ((float) this.tape.oneCount()) / ((float) this.states.length * (float) this.alphabet.length * (float) this.initialInputSize);
+        return ((float) this.tape.oneCount())
+                / ((float) this.states.length + (float) this.alphabet.length + (float) this.initialInputSize);
     }
 }

@@ -1,6 +1,6 @@
 public class Tape {
     private char[] tape;
-    private int head;
+    public int head;
     private int size;
 
     public Tape(String input) {
@@ -11,8 +11,7 @@ public class Tape {
 
     public void left() {
         if (this.head == 0) {
-            this.resize();
-            this.head = this.size / 2;
+            this.resize(false);
         } else {
             this.head--;
         }
@@ -20,7 +19,7 @@ public class Tape {
 
     public void right() {
         if (this.head == this.size - 1) {
-            this.resize();
+            this.resize(true);
         }
         this.head++;
     }
@@ -33,15 +32,28 @@ public class Tape {
         this.tape[this.head] = c;
     }
 
-    public void resize() {
+    public void resize(boolean resizeRight) {
         char[] newTape = new char[this.size * 2];
-        for (int i = 0; i < this.size; i++) {
-            newTape[i] = this.tape[i];
-        }
-        for (int i = this.size; i < this.size * 2; i++) {
-            newTape[i] = '0';
+        if (resizeRight) {
+            for (int i = 0; i < this.size; i++) {
+                newTape[i] = this.tape[i];
+            }
+            for (int i = this.size; i < this.size * 2; i++) {
+                newTape[i] = '0';
+            }
+
+        } else {
+            for (int i = 0; i < this.size; i++) {
+                newTape[i + this.size] = this.tape[i];
+            }
+            for (int i = 0; i < this.size; i++) {
+                newTape[i] = '0';
+            }
         }
         this.tape = newTape;
+        if (!resizeRight) {
+            this.head += this.size - 1;
+        }
         this.size *= 2;
     }
 
