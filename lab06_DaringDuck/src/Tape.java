@@ -38,8 +38,11 @@ public class Tape {
         for (int i = 0; i < this.size; i++) {
             newTape[i] = this.tape[i];
         }
+        for (int i = this.size; i < this.size * 2; i++) {
+            newTape[i] = '0';
+        }
         this.tape = newTape;
-        this.size = this.size * 2;
+        this.size *= 2;
     }
 
     public String toString() {
