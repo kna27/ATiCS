@@ -1,4 +1,6 @@
 ## Daring Duck machine
+### Krish Arora, Nico Kichukov, Matthew Specht
+### Period 1
 
 This machine is a variation of the Busy Beaver Problem
 
