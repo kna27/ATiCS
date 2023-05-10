@@ -1,28 +1,24 @@
-package lab06_DaringDuck.src;
-
 public class Transition {
-    private char input;
-    private char write;
-    private boolean moveLeft;
+    public enum Direction {
+        LEFT, RIGHT;
+    }
+
+    private char symbol;
+    private Direction direction;
     private State nextState;
 
-    public Transition(char input, char write, boolean moveLeft, State nextState) {
-        this.input = input;
-        this.write = write;
-        this.moveLeft = moveLeft;
+    public Transition(char symbol, Direction direction, State nextState) {
+        this.symbol = symbol;
+        this.direction = direction;
         this.nextState = nextState;
     }
 
-    public char getInput() {
-        return this.input;
+    public char getSymbol() {
+        return this.symbol;
     }
 
-    public char getWrite() {
-        return this.write;
-    }
-
-    public boolean getMoveLeft() {
-        return this.moveLeft;
+    public Direction getDirection() {
+        return this.direction;
     }
 
     public State getNextState() {

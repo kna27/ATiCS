@@ -16,3 +16,4 @@ compiled/
 *.tmp
 ~$*.doc*
 Backup of *.doc*
+*.class

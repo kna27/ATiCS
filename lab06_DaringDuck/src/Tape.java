@@ -1,5 +1,3 @@
-package lab06_DaringDuck.src;
-
 public class Tape {
     private char[] tape;
     private int head;
@@ -14,8 +12,10 @@ public class Tape {
     public void left() {
         if (this.head == 0) {
             this.resize();
+            this.head = this.size / 2;
+        } else {
+            this.head--;
         }
-        this.head--;
     }
 
     public void right() {
@@ -59,5 +59,8 @@ public class Tape {
         }
         return count;
     }
-    
+
+    public int getSize() {
+        return this.size;
+    }
 }
