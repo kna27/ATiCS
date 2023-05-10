@@ -4,6 +4,7 @@ public class StateMachine {
     public Tape tape;
     public char[] alphabet;
     public int initialInputSize;
+    public int totalSteps;
 
     public StateMachine(State[] states, Tape tape, char[] alphabet) {
         this.states = states;
@@ -25,6 +26,7 @@ public class StateMachine {
     }
 
     public void step() {
+        this.totalSteps++;
         char input = this.tape.read();
         Transition transition = this.currentState.getTransition(input);
         this.tape.write(transition.getWrite());

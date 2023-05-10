@@ -27,6 +27,7 @@ public class TuringMachineRunner {
 
     StateMachine machine = new StateMachine(states, tape, alphabet);
     machine.run();
+    System.out.println("Total Steps: " + machine.totalSteps);
     System.out.println("One Count: " + machine.oneCount());
     System.out.println("Score: " + machine.score());
   }
