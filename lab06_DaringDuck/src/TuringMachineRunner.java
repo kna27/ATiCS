@@ -14,7 +14,7 @@ public class TuringMachineRunner {
     A.addTransition(new Transition('1', '1', Transition.Direction.RIGHT, A));
     B.addTransition(new Transition('0', '0', Transition.Direction.LEFT, C));
     B.addTransition(new Transition('1', '0', Transition.Direction.RIGHT, C));
-    C.addTransition(new Transition('0', '1', Transition.Direction.RIGHT, H));
+    C.addTransition(new Transition('0', '0', Transition.Direction.LEFT, H));
     C.addTransition(new Transition('1', '1', Transition.Direction.RIGHT, D));
     D.addTransition(new Transition('0', '1', Transition.Direction.LEFT, E));
     D.addTransition(new Transition('1', '1', Transition.Direction.RIGHT, B));
