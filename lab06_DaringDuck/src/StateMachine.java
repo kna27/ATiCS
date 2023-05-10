@@ -2,11 +2,15 @@ public class StateMachine {
     public State[] states;
     public State currentState;
     public Tape tape;
+    public char[] alphabet;
+    public int initialInputSize;
 
-    public StateMachine(State[] states, Tape tape) {
+    public StateMachine(State[] states, Tape tape, char[] alphabet) {
         this.states = states;
         this.currentState = states[0];
         this.tape = tape;
+        this.alphabet = alphabet;
+        this.initialInputSize = tape.getSize();
     }
 
     public void run() {
@@ -29,5 +33,9 @@ public class StateMachine {
 
     public int oneCount() {
         return this.tape.oneCount();
+    }
+
+    public float score() {
+        return ((float) this.tape.oneCount()) / ((float) this.states.length * (float) this.alphabet.length * (float) this.initialInputSize);
     }
 }

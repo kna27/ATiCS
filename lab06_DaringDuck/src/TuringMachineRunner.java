@@ -6,11 +6,12 @@ public class TuringMachineRunner {
     Transition startToEndTransition = new Transition('1', Transition.Direction.RIGHT, endState);
     startState.addTransition(startToEndTransition);
     State[] states = { startState, endState };
+    char[] alphabet = { '0', '1', ' '};
     Tape tape = new Tape("1");
-    StateMachine machine = new StateMachine(states, tape);
+    StateMachine machine = new StateMachine(states, tape, alphabet);
     System.out.println("running machine");
-    System.out.println(machine.states[0].getTransitions()[0].getSymbol());
     machine.run();
-    System.out.println(machine.oneCount());
+    System.out.println("One Count: " + machine.oneCount());
+    System.out.println("Score: " + machine.score());
   }
 }
