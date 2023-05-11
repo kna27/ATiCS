@@ -1,0 +1,3 @@
+[submodule "lambda-applicator"]
+	path = lambda-applicator
+	url = git@github.com:kna27/lambda-applicator.git
